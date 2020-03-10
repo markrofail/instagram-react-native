@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import NavigationService from 'App/Services/NavigationService'
+import AuthenticationStack from 'App/Navigators/AuthenticationStack'
 import AppNavigator from 'App/Navigators/AppNavigator'
-import { View } from 'react-native'
+import { View, StatusBar } from 'react-native'
 import { connect } from 'react-redux'
 import StartupActions from 'App/Stores/Startup/Actions'
 import { PropTypes } from 'prop-types'
@@ -16,7 +16,8 @@ class RootScreen extends Component {
   render() {
     return (
       <View style={Helpers.fill}>
-        <AppNavigator/>
+        <StatusBar backgroundColor="#ebebeb" barStyle="dark-content" />
+        <AuthenticationStack />
       </View>
     )
   }
