@@ -19,13 +19,13 @@ function AppNavigator() {
         inactiveColor="#aaa"
         barStyle={{ backgroundColor: '#fff' }}
       >
-        <Tab.Screen name="Newsfeed" component={FeedNavigation}
+        <Tab.Screen name="Home" component={FeedNavigation}
           options={{
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons name="home" color={color} size={26} />
             ),
           }} />
-        <Tab.Screen name="Bucket List" component={BucketListScreen}
+        <Tab.Screen name="BucketList" component={BucketListScreen}
           options={{
             tabBarLabel: 'Bucket List',
             tabBarIcon: ({ color }) => (
