@@ -1,5 +1,5 @@
 import React from 'react';
-import Instagram from './src/Main.js';
+import Instagram from './App/App.js';
 
 const App: () => React$Node = () => {
     return <Instagram/>;

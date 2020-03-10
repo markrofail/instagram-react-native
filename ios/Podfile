@@ -1,8 +1,8 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'instaClone' do
-  # Pods for instaClone
+target 'InstagramMini' do
+  # Pods for InstagramMini
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -34,7 +34,7 @@ target 'instaClone' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  target 'instaCloneTests' do
+  target 'InstagramMiniTests' do
     inherit! :search_paths
     # Pods for testing
   end
@@ -42,10 +42,10 @@ target 'instaClone' do
   use_native_modules!
 end
 
-target 'instaClone-tvOS' do
-  # Pods for instaClone-tvOS
+target 'InstagramMini-tvOS' do
+  # Pods for InstagramMini-tvOS
 
-  target 'instaClone-tvOSTests' do
+  target 'InstagramMini-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
