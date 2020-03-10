@@ -1,16 +1,16 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { View, Image } from 'react-native';
 import styles from './SplashScreenStyle'
 import { Helpers } from 'App/Theme'
 
 export default class SplashScreen extends React.Component {
   render() {
     return (
-      <View style={[Helpers.fillRowCenter, styles.container]}>
-        <View style={[Helpers.center, styles.logo]}>
-          {/* You will probably want to insert your logo here */}
-          <Text>LOGO</Text>
-        </View>
+      <View style={[Helpers.fillRowCenter]}>
+          <Image
+            style={{ width: 100, height: 100 }}
+            source={require('App/Assets/Images/instagram_logo.png')}
+          />
       </View>
     )
   }
