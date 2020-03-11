@@ -3,11 +3,14 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import AsyncStorage from '@react-native-community/async-storage';
-import {ToastAndroid} from 'react-native';
+import { ToastAndroid } from 'react-native';
+import { put, call } from 'redux-saga/effects'
+import UserActions from 'App/Stores/Auth/Actions'
 
 import AppNavigator from 'App/Navigators/AppNavigator';
 import LoginScreen from 'App/Containers/Login/LoginScreen';
 import SplashScreen from 'App/Containers/SplashScreen/SplashScreen';
+import { userService } from 'App/Services/UserService'
 
 const Stack = createStackNavigator()
 const AuthContext = React.createContext();
@@ -21,7 +24,7 @@ function validatePassword(password) {
     return password.length > 0
 }
 
-export function AuthenticationStack({ navigation }) {
+function AuthenticationStack({ navigation }) {
     const [state, dispatch] = React.useReducer(
         (prevState, action) => {
             switch (action.type) {
@@ -76,31 +79,23 @@ export function AuthenticationStack({ navigation }) {
     const authContext = React.useMemo(
         () => ({
             signIn: async data => {
-                email = data.email;
-                let emailIsValid = validateEmail(email);
+                let emailIsValid = validateEmail(data.email);
                 if (!emailIsValid) {
-                    // FlashMessage.showMessage({
-                    //     message: "Hello World",
-                    //     description: "This is our second message",
-                    //     type: "success",
-                    //   });
-                    ToastAndroid.show('please enter a valid email', ToastAndroid.SHORT);
+                    ToastAndroid.showWithGravity('please enter a valid email', ToastAndroid.SHORT, ToastAndroid.TOP);
                     return;
                 }
 
-                password = data.password;
-                let passwordIsValid = validatePassword(password);
+                let passwordIsValid = validatePassword(data.password);
                 if (!passwordIsValid) {
-                    // FlashMessage.showMessage({
-                    //     message: "Hello World",
-                    //     description: "This is our second message",
-                    //     type: "success",
-                    //   });
-                    ToastAndroid.show('please enter your password', ToastAndroid.SHORT);
+                    ToastAndroid.showWithGravity('please enter your password', ToastAndroid.SHORT, ToastAndroid.TOP);
                     return;
                 }
 
-                dispatch({ type: 'SIGN_IN', token: 'dummy-auth-token' });
+                userService.authUser(data.email, data.password).then((response) => {
+                    dispatch({ type: 'SIGN_IN', token: response.accessToken });
+                }).catch(() => {
+                    ToastAndroid.showWithGravity('incorrect username/password', ToastAndroid.SHORT, ToastAndroid.TOP);
+                });
             },
             signOut: () => dispatch({ type: 'SIGN_OUT' }),
             signUp: async data => {
