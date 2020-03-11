@@ -12,35 +12,33 @@ const Tab = createMaterialBottomTabNavigator()
 
 function AppNavigator() {
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        initialRouteName="Newsfeed"
-        activeColor="#444"
-        inactiveColor="#aaa"
-        barStyle={{ backgroundColor: '#fff' }}
-      >
-        <Tab.Screen name="Home" component={FeedNavigation}
-          options={{
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="home" color={color} size={26} />
-            ),
-          }} />
-        <Tab.Screen name="BucketList" component={BucketListScreen}
-          options={{
-            tabBarLabel: 'Bucket List',
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="playlist-star" color={color} size={26} />
-            ),
-          }} />
-        <Tab.Screen name="Profile" component={ProfileScreen}
-          options={{
-            tabBarLabel: 'Profile',
-            tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name="account" color={color} size={26} />
-            ),
-          }} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <Tab.Navigator
+      initialRouteName="Newsfeed"
+      activeColor="#444"
+      inactiveColor="#aaa"
+      barStyle={{ backgroundColor: '#fff' }}
+    >
+      <Tab.Screen name="Home" component={FeedNavigation}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="home" color={color} size={26} />
+          ),
+        }} />
+      <Tab.Screen name="BucketList" component={BucketListScreen}
+        options={{
+          tabBarLabel: 'Bucket List',
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="playlist-star" color={color} size={26} />
+          ),
+        }} />
+      <Tab.Screen name="Profile" component={ProfileScreen}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="account" color={color} size={26} />
+          ),
+        }} />
+    </Tab.Navigator>
   )
 }
 

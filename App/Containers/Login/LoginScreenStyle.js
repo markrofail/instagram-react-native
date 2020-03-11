@@ -9,15 +9,19 @@ export default StyleSheet.create({
       justifyContent: "space-between"
     },
     logo: {
-      width: "40%",
-      height: "25%",
+      width: "60%",
+      height: "20%",
       resizeMode: "contain",
       alignSelf: "center"
     },
     form: {
       flex: 1,
       justifyContent: "center",
-      width: "60%"
+      width: "80%"
+    },
+    formInput: {
+      height:40,
+      marginBottom: 5
     },
   });
   

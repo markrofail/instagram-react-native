@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import AuthenticationStack from 'App/Navigators/AuthenticationStack'
+import { AuthenticationStack } from 'App/Navigators/AuthenticationStack'
 import AppNavigator from 'App/Navigators/AppNavigator'
 import { View, StatusBar } from 'react-native'
 import { connect } from 'react-redux'

@@ -1,4 +1,5 @@
 import { NavigationActions, StackActions } from 'react-navigation'
+import { CommonActions } from '@react-navigation/native';
 
 /**
  * The navigation is implemented as a service so that it can be used outside of components, for example in sagas.
@@ -23,7 +24,7 @@ function setTopLevelNavigator(navigatorRef) {
  */
 function navigate(routeName, params) {
   navigator.dispatch(
-    NavigationActions.navigate({
+    CommonActions.navigate({
       routeName,
       params,
     })
@@ -41,7 +42,7 @@ function navigate(routeName, params) {
  */
 function navigateAndReset(routeName, params) {
   navigator.dispatch(
-    StackActions.reset({
+    CommonActions.reset({
       index: 0,
       key: null,
       actions: [
