@@ -24,33 +24,34 @@
 - All the `code` required to get started
 - Images of what it should look like
 
-### Clone
-
-- Clone this repo to your local machine using `https://github.com/fvcproductions/SOMEREPO`
-
 ### Setup
 
-- If you want more syntax highlighting, format your code like this:
-
-> update and install this package first
+> install npm packages
 
 ```shell
-$ brew update
-$ brew install fvcproductions
+npm install -D
 ```
 
-> now install npm and bower packages
+> start metro server
 
 ```shell
-$ npm install
-$ bower install
+npm start
 ```
 
-- For all the possible languages that support syntax highlithing on GitHub (which is basically all of them), refer <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml" target="_blank">here</a>.
+> in another terminal start the android build
+```shell
+npm run android
+```
+
+> in another terminal start json-server with the auth middleware
+```shell
+json-server-auth db.json
+```
 
 ---
 
 ## Features
-Backend API Endpoints:
-- POST `/signin`
-- POST `/register`
+
+### Backend API Endpoints:
+- POST `/signin` to sign in
+- POST `/register` to register
