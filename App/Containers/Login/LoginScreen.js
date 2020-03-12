@@ -104,15 +104,10 @@ LoginScreen.propTypes = {
   authErrorMessage: PropTypes.string,
 }
 
-const mapStateToProps2 = (state) => ({
+const mapStateToProps = (state) => ({
   authIsLoading: state.user.authIsLoading,
   authErrorMessage: state.user.authErrorMessage,
 })
-
-function mapStateToProps(state) {
-  console.log(state) // state
-  return mapStateToProps2(state);
-}
 
 const mapDispatchToProps = (dispatch) => (
   {
