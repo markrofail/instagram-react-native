@@ -1,5 +1,5 @@
 export const INITIAL_STATE = {
-  token: {},
+  token: null,
   authIsLoading: false,
   authErrorMessage: null,
 }

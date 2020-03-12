@@ -8,7 +8,9 @@ const { Types, Creators } = createActions({
     // User informations were successfully authed
     authUserSuccess: ['token'],
     // An error occurred
-    authUserFailure: ['authErrorMessage'],
+    authUserFailure: ['errorMessage'],
+    // On startup clear message
+    authUserMessageClear: null
 })
 
 export const UserTypes = Types

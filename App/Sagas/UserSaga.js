@@ -7,11 +7,8 @@ import UserActions from 'App/Stores/User/Actions'
 // Defined in ./index.js
 
 // Worker SAGA
-export function* authUser(payload) {
-    email = payload.email;
-    password = payload.password;
-
-    console.log(`${email} ${password}`)
+export function* authUser({email, password}) {
+    console.log(`SAGA called: ${email} ${password}`)
 
     // Dispatch a redux action using `put()`
     // @see https://redux-saga.js.org/docs/basics/DispatchingActions.html
@@ -22,8 +19,6 @@ export function* authUser(payload) {
     if (token) {
         yield put(UserActions.authUserSuccess(token))
     } else {
-        yield put(
-            UserActions.authUserFailure('There was an error while fetching user informations.')
-        )
+        yield put(UserActions.authUserFailure('incorrect username or password'))
     }
 }

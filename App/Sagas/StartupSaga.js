@@ -1,4 +1,6 @@
 import { put } from 'redux-saga/effects'
+
+import UserActions from 'App/Stores/User/Actions'
 import ExampleActions from 'App/Stores/Example/Actions'
 
 /**
@@ -7,11 +9,8 @@ import ExampleActions from 'App/Stores/Example/Actions'
 export function* startup() {
   // Dispatch a redux action using `put()`
   // @see https://redux-saga.js.org/docs/basics/DispatchingActions.html
-  // yield put(ExampleActions.fetchUser())
 
   // Add more operations you need to do at startup here
   // ...
-
-  // When those operations are finished we redirect to the main screen
-  // NavigationService.navigateAndReset('Home')
+  yield put(UserActions.authUserMessageClear())
 }

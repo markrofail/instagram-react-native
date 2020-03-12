@@ -25,14 +25,13 @@ const userApiClient = axios.create({
   timeout: 3000,
 })
 
-function authUser(email, password) {
-  const payload = { email: email, password: password }
-  return userApiClient.post('login', payload).then((response) => {
-    if (in200s(response.status)) {
-      return response.data
-    }
-
-    return null
+const authUser = async (email, password) => {
+  return userApiClient.post('login', { email, password })
+  .then(function (response) {
+    return response.data;
+  })
+  .catch(function () {
+    return null;
   })
 }
 

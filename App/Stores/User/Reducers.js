@@ -17,13 +17,19 @@ export const authUserSuccess = (state, { token }) => ({
 
 export const authUserFailure = (state, { errorMessage }) => ({
     ...state,
-    token: {},
+    token: null,
     authIsLoading: false,
     authErrorMessage: errorMessage,
+})
+
+export const authUserMessageClear = (state) => ({
+    ...state,
+    authErrorMessage: null,
 })
 
 export const reducer = createReducer(INITIAL_STATE, {
     [UserTypes.AUTH_USER_LOADING]: authUserLoading,
     [UserTypes.AUTH_USER_SUCCESS]: authUserSuccess,
     [UserTypes.AUTH_USER_FAILURE]: authUserFailure,
+    [UserTypes.AUTH_USER_MESSAGE_CLEAR]: authUserMessageClear,
 })

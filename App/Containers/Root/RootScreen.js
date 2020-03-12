@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { AuthenticationStack } from 'App/Navigators/AuthenticationStack'
+import AuthenticationStack from 'App/Navigators/AuthenticationStack'
 import AppNavigator from 'App/Navigators/AppNavigator'
 import { View, StatusBar } from 'react-native'
 import { connect } from 'react-redux'
 import StartupActions from 'App/Stores/Startup/Actions'
 import { PropTypes } from 'prop-types'
 import { Helpers } from 'App/Theme'
+import FlashMessage from "react-native-flash-message";
 
 class RootScreen extends Component {
   componentDidMount() {
@@ -18,6 +19,7 @@ class RootScreen extends Component {
       <View style={Helpers.fill}>
         <StatusBar backgroundColor="#ebebeb" barStyle="dark-content" />
         <AuthenticationStack />
+        <FlashMessage position="top" />
       </View>
     )
   }
