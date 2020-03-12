@@ -25,10 +25,21 @@ const userApiClient = axios.create({
   timeout: 3000,
 })
 
+function authUser(email, password) {
+  const payload = { email: email, password: password }
+  return userApiClient.post('login', payload).then((response) => {
+    if (in200s(response.status)) {
+      return response.data
+    }
+
+    return null
+  })
+}
+
 function fetchUser() {
   // Simulate an error 50% of the time just for testing purposes
   if (Math.random() > 0.5) {
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
       resolve(null)
     })
   }
@@ -46,4 +57,5 @@ function fetchUser() {
 
 export const userService = {
   fetchUser,
+  authUser
 }
